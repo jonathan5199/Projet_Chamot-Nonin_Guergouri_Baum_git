@@ -1,3 +1,8 @@
+%% Raccourcissement des données .csv et sauvegarde des données dans 
+%% une variable .mat pour éviter le chargement du csv à chaque test
+% date de création : 12/11/2022
+% auteur: Chamot-Nonin Manon - Guergouri Ambre - Baum Jonathan
+
 clc
 close all
 clearvars %-except data
@@ -24,7 +29,7 @@ end
 
 
 filename=['..\DAT\shorten_data_',char(participant(i)),'.mat'];
-save(filename,'data','Fs')
+save(filename,'data','Fs')%stockage des variables data et nouvelle Fs dans un .mat pour chargement plus rapide à postériori
 clear data Fs filename
 
 end

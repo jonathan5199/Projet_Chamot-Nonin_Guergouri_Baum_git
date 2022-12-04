@@ -1,3 +1,7 @@
+%% Fonction de réduction de l'échantillonnage du data set
+% date de création : 12/11/2022
+% auteur: Chamot-Nonin Manon - Guergouri Ambre - Baum Jonathan
+
 function [dataslim, Fe] = nvchantillonnage(data, Fs, varargin)
 
 %% Entrées additionnelles
