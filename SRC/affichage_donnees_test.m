@@ -29,6 +29,10 @@ end
 
 clear vector i
 
+[B,A] = butter(4, [0.5 20] ./ (100 / 2)); 
+filtered_enmo = filter(B, A, enmo); % Filtre passe bande 0,5 à 20 Hz
+clear B A
+
 %% Densité Spectrale de Puissance (PDS)
 data_c(size(time),3)=0;
 for i=1:3
@@ -36,7 +40,7 @@ data_c(:,i)=data(:,i+1)-mean(data(:,i+1)); %centrage des données --> met la com
 end
 
 f = 0:(Fs/N):Fs/2; % échelle des fréquences en respectant le TH de Shannon (on met Fs sur deux parce que pas besoin de voir le repliement spectral)
-datafft= fft(data_c(:,1:3));%fft des données centrées
+datafft= fft(filtered_enmo);%fft des données centrées
 PSD= (abs(datafft(1:(N/2)+1)).^2)/(N*Fs);
 
 %% Affichage
