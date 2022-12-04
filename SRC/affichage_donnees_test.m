@@ -32,7 +32,7 @@ clear vector i
 %% Densité Spectrale de Puissance (PDS)
 data_c(size(time),3)=0;
 for i=1:3
-data_c(:,i)=data(:,i+1)-mean(data(:,i+1));
+data_c(:,i)=data(:,i+1)-mean(data(:,i+1)); %centrage des données --> met la composante continue du signal à 0 pour éviter un pic à F=0 sur la DSP
 end
 
 f = 0:(Fs/N):Fs/2; % échelle des fréquences en respectant le TH de Shannon (on met Fs sur deux parce que pas besoin de voir le repliement spectral)
