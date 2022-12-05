@@ -6,7 +6,7 @@ function [dataslim, Fe] = nvchantillonnage(data, Fs, varargin)
 
 %% Entrées additionnelles
 p = inputParser;
-addOptional(p,'echant', 10, @isnumeric);%nouvel échantillonnage à 10Hz par défaut, réglable avec l'input 'echant' dans la fonciton
+addOptional(p,'echant', 50, @isnumeric);%nouvel échantillonnage à 50Hz par défaut, réglable avec l'input 'echant' dans la fonciton
 parse(p,varargin{:});
 p = p.Results;
 
