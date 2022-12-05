@@ -9,7 +9,7 @@ clearvars %-except data
 
 %% Paramètres utilisateur
 
-reechantillonnage=1; %activation de la fonction pour rééchantillonner le dataset ? (1=ok 0=non)
+reechantillonnage=0; %activation de la fonction pour rééchantillonner le dataset ? (1=ok 0=non)
 participant=["pere" "frere" "mere"]; %vecteur contenant les nom spécifiques des fichiers (à compléter par d'éventuels noms de fichiers supplémentaires)
 
 for i=1:3 %pour chaque participant
