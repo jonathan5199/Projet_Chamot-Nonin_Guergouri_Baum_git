@@ -55,6 +55,16 @@ end
 
 clear vector i
 
+%% moyennes epoch
+
+window=1:60*Fs:N; % donne l'index de time de chaque début de plage de 60 sec
+moyepoch(1:size(window,2)-1)=0;
+
+for i = 1:size(window,2)-1
+moyepoch(1,i)=mean(filtered_enmo(window(i):window(i)+(60*Fs)-1));
+end
+
+
 %%  Affichage
 
 %Données brutes 
@@ -141,5 +151,14 @@ xlim([time(1,1) time(end,1)])
 ylabel('accélération (g)')
 
 xlabel(t,'temps (s)')
+
+%% Moyenne EPOCH
+
+figure
+plot(time(window(1:end-1))+30*Fs,moyepoch)
+title('Signal moyenné selon fenêtres EPOCH de 60 secondes')
+xlim([time(1,1) time(end,1)])
+ylabel('accélération moyenne (g)')
+xlabel('temps (s)')
 
 
