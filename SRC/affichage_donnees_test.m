@@ -2,7 +2,7 @@
 % date de création : 10/11/2022
 % auteur: Chamot-Nonin Manon - Guergouri Ambre - Baum Jonathan
 
-for particip_number=2 %choix du dataset
+for particip_number=1:3 %choix du dataset
 clc
 close all
 clearvars -except particip_number
@@ -181,7 +181,7 @@ xlabel(t,'temps (s)')
 
 %% Moyenne EPOCH
 
-figure
+figure("WindowState",'maximized')
 plot(time(window(1:end-1))+30*Fs,moyepoch)
 title('Signal moyenné selon fenêtres EPOCH de 60 secondes')
 xlim([time(1,1) time(end,1)])
@@ -206,4 +206,16 @@ patch('Faces',f,'Vertices',zone,'FaceColor',Color_window{i},'FaceAlpha',.3)
 end
 hold off
 
+for i=1:4
+   pro(i)= strcat(percentact(1,i)," --> " , percentact(2,i), '%') ;
+end
+
+text(0.1e4,0.3,["Proportion temps/niveau d'activité :" pro(1) pro(2) pro(3) pro(4)])
+
+%% sauvegarde figures
+
+filename=["Donnees_brutes" "Donnees_centrees" "Donnees_filtrees" "epoch"];
+for r=1:4
+ saveas(figure(r),strcat('..\RES\', participant(particip_number), '\' ,filename(r) ,'.png'))
+end
 end
