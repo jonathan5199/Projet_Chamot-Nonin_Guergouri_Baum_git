@@ -2,13 +2,13 @@
 % date de création : 10/11/2022
 % auteur: Chamot-Nonin Manon - Guergouri Ambre - Baum Jonathan
 
+for particip_number=2 %choix du dataset
 clc
 close all
-clear all
+clearvars -except particip_number
 
 %% Paramètres utilisateur
 participant=["pere" "frere" "mere"]; %vecteur contenant la composante variable des noms des fichiers (à compléter par d'éventuels noms de fichiers supplémentaires)
-particip_number=1; %choix du dataset
 
 
 %% chargement des données
@@ -205,3 +205,5 @@ f=[1 2 3 4];
 patch('Faces',f,'Vertices',zone,'FaceColor',Color_window{i},'FaceAlpha',.3)
 end
 hold off
+
+end
